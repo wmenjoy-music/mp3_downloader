@@ -43,7 +43,8 @@ for(var i=0; i<items.length; i++){
     if(url){
         if (location.host == "w1.musify.club") {
             if (items[i].nodeName == "DIV") {
-                filePath = ablumName + "/" +  items[i].getAttribute("data-position") +". "+ items[i].getAttribute("data-title") + ".mp3"
+                prefix = url.substr(url.lastIndexOf("."));
+                filePath = ablumName + "/" +  items[i].getAttribute("data-position") +". "+ items[i].getAttribute("data-title") + prefix
                 data.push({url:url, downloadFile: filePath, fileName:  items[i].getAttribute("data-title")});
             }
 
@@ -58,7 +59,6 @@ var items = $('*[value*=".mp3"], *[value*=".wav"], *[value*=".wma"], *[value*=".
 for(var i=0; i<items.length; i++){
     var url = correctUrl(items[i].value);
     if(url){
-
         data.push({url:url});
     }
 }
