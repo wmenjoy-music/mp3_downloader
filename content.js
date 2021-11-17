@@ -13,7 +13,7 @@ function correctUrl(url){
 
 var ablumName = $("#bodyContent meta[itemprop=name]").attr("content")
 
-    var data = [];
+var data = [];
 var items = $('*[href*=".mp3"], *[href*=".wav"], *[href*=".wma"], *[href*=".ogg"]');
 
 for(var i=0; i<items.length; i++){
@@ -43,7 +43,7 @@ for(var i=0; i<items.length; i++){
     if(url){
         if (location.host == "w1.musify.club") {
             if (items[i].nodeName == "DIV") {
-                filePath = ablumName + "/" +  items[i].getAttribute("data-position") +". "+ items[i].getAttribute("data-title")
+                filePath = ablumName + "/" +  items[i].getAttribute("data-position") +". "+ items[i].getAttribute("data-title") + ".mp3"
                 data.push({url:url, downloadFile: filePath, fileName:  items[i].getAttribute("data-title")});
             }
 
@@ -62,7 +62,6 @@ for(var i=0; i<items.length; i++){
         data.push({url:url});
     }
 }
-
 chrome.extension.sendRequest({data:data},function(response){});
 
 },150);

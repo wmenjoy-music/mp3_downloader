@@ -14,7 +14,7 @@ function render(items){
     if(items.length > 0){
         var list = $('#list');
         $('#list').append(
-            $('<span id="down_all">DOWNLOAD ALL</span>').click(function(){
+            $('<span id="down_all">下载所有</span>').click(function(){
                 if(confirm('Really start download all files?')){
                     for(var i in items){
                         chrome.downloads.download({url:items[i].url, filename: items[i].downloadFile}, function(){});
